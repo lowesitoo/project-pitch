@@ -2,18 +2,18 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <div className="nav-bar">
-        <ul>
-          <strong>Anivact</strong>
-          <li>Home</li>
-          <li>My Profile</li>
-        </ul>
-      </div>
-      <div className="app-container">
-        <h1>Welcome to Anivact!</h1>
-      </div>
-    </div>
+    <form onSubmit={this.handleSubmit}>
+      <label>
+        Pick your favorite flavor:
+        <select value={this.state.value} onChange={this.handleChange}>
+          <option value="grapefruit">Grapefruit</option>
+          <option value="lime">Lime</option>
+          <option value="coconut">Coconut</option>
+          <option value="mango">Mango</option>
+        </select>
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
   );
 }
 
