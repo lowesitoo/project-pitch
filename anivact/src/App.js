@@ -1,13 +1,19 @@
-import { Routes, Route } from "react-router-dom";
-
-import Home from "./Home";
 import "./App.css";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <div className="App">
+      <div className="nav-bar">
+        <ul>
+          <strong>Anivact</strong>
+          <li>Home</li>
+          <li>My Profile</li>
+        </ul>
+      </div>
+      <div className="app-container">
+        <h1>Welcome to Anivact!</h1>
+      </div>
+    </div>
   );
 }
 
