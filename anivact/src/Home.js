@@ -4,11 +4,15 @@ function Home() {
   return (
     <div className="App">
       <div className="nav-bar">
-        <ol>
+        <ul>
+          <strong>Anivact</strong>
           <li>Home</li>
-        </ol>
+          <li>My Profile</li>
+        </ul>
       </div>
-      <h1>Welcome to Anivact!</h1>
+      <div className="app-container">
+        <h1>Welcome to Anivact!</h1>
+      </div>
     </div>
   );
 }

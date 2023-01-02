@@ -1,18 +1,3 @@
 body {
   margin: 0;
 }
-.nav-bar {
-  position: sticky;
-  top: 0;
-  background-color: gray;
-  display: flex;
-}
-.nav-bar ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-}
-
-.app-container {
-  text-align: center;
-}
