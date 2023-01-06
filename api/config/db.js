@@ -1,17 +1,16 @@
 const { Sequelize, Model, DataTypes } = require('sequelize')
-const logger = require('../logger/logger')
 
 const connect = () => {
     const hostName = process.env.HOST
     const userName = process.env.USER
     const password = process.env.PASSWORD
     const database = process.env.DB
-    const dialect = process.env.DIALECT
+    const dialect = 'postgres'
 
     const sequelize = new Sequelize(database, userName, password, {
         host: hostName,
         dialect: dialect,
-        operatorsAliases: false,
+        // operatorsAliases: false,
         pool: {
             max: 10,
             min: 0,
@@ -23,11 +22,9 @@ const connect = () => {
     const db = {}
     db.Sequelize = Sequelize
     db.sequelize = sequelize
-    db.tasks = require('../model/model')(sequelize, DataTypes, Model)
+    db.owners = require('../model/owners')(sequelize, DataTypes, Model)
 
     return db
 }
 
-module.exports = {
-    connect,
-}
+module.exports = { connect }
