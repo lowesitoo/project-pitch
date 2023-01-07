@@ -1,0 +1,103 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "Owners API",
+        "contact": {
+            "email": "abc@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:3080",
+    "basePath": "/api",
+    "paths": {
+        "/owners": {
+            "get": {
+                "summary": "Get all the owners",
+                "description": "Get all the owners",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ownersResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ownersResponse": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "updatedBy": {
+                    "type": "string"
+                }
+            }
+        },
+        "Owner": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "createdBy": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

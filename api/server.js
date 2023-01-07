@@ -8,18 +8,22 @@ require('dotenv').config()
 const ownersController = require('./controller/owners')
 
 const swaggerUi = require('swagger-ui-express')
-// const swaggerDocument = require('./swagger.json')
-// const customCss = fs.readFileSync(process.cwd() + '/swagger.css', 'utf8')
+const swaggerDocument = require('./swagger.json')
+const customCss = fs.readFileSync(process.cwd() + '/swagger.css', 'utf8')
 
 const app = express()
 const port = process.env.PORT || 3000
 
-// app.use(express.static(path.join(__dirname, './ui/build/')));
+app.use(express.static(path.join(__dirname, './ui/build/')))
 
 // // let express to use this
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
+app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument, { customCss })
+)
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json())
 
 app.get('/api/owners', (req, res) => {
     ownersController.getOwners().then((data) => res.json(data))
