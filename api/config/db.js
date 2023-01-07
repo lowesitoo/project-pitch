@@ -5,7 +5,7 @@ const connect = () => {
     const userName = process.env.USER
     const password = process.env.PASSWORD
     const database = process.env.DB
-    const dialect = 'postgres'
+    const dialect = process.env.DIALECT
 
     const sequelize = new Sequelize(database, userName, password, {
         host: hostName,
@@ -16,6 +16,9 @@ const connect = () => {
             min: 0,
             acquire: 20000,
             idle: 5000,
+        },
+        define: {
+            timestamps: false,
         },
     })
 

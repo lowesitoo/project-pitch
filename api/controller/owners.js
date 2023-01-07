@@ -9,17 +9,17 @@ class OwnersController {
 
     // async createOwners(user) {
     //     logger.info('Controller: createOwners', user)
-    //     return await userService.createUser(user)
+    //     return await userService.createOwners(user)
     // }
 
-    // async updateUser(user) {
-    //     logger.info('Controller: updateUser', user)
-    //     return await userService.updateUser(user)
+    // async updateOwners(user) {
+    //     logger.info('Controller: updateOwners', user)
+    //     return await userService.updateOwners(user)
     // }
 
-    // async deleteUser(userId) {
-    //     logger.info('Controller: deleteUser', userId)
-    //     return await userService.deleteUser(userId)
+    // async deleteOwners(userId) {
+    //     logger.info('Controller: deleteOwners', userId)
+    //     return await userService.deleteOwners(userId)
     // }
 }
 module.exports = new OwnersController()
