@@ -7,9 +7,9 @@ class OwnerRepository {
     constructor() {
         this.db = connect()
         // For Development
-        // this.db.sequelize.sync({ force: true }).then(() => {
-        //     console.log('Drop and re-sync db.')
-        // })
+        this.db.sequelize.sync({ force: true }).then(() => {
+            console.log('Drop and re-sync db.')
+        })
     }
 
     async getOwners() {
@@ -25,7 +25,7 @@ class OwnerRepository {
     // Assignment #3
     // Uncomment remaining crud
 
-    async createOwner(owner) {
+    async createOwners(owner) {
         let data = {}
         try {
             owner.createdate = new Date().toISOString()
@@ -36,7 +36,7 @@ class OwnerRepository {
         return data
     }
 
-    async updateOwner(owner) {
+    async updateOwners(owner) {
         let data = {}
         try {
             owner.updateddate = new Date().toISOString()
@@ -54,7 +54,7 @@ class OwnerRepository {
         return data
     }
 
-    async deleteOwner(ownerId) {
+    async deleteOwners(ownerId) {
         let data = {}
         try {
             data = await this.db.owner.destroy({
@@ -66,7 +66,7 @@ class OwnerRepository {
             logger.error('Error::' + err)
         }
         return data
-        // return { status: `${data.deletedCount > 0 ? true : false}` }
+        return { status: `${data.deletedCount > 0 ? true : false}` }
     }
 }
 

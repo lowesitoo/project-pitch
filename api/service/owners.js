@@ -9,15 +9,15 @@ class OwnerService {
     // Assignment #2
     // Uncomment remaining crud
 
-    async createOwner(owner) {
-        return await ownerRepository.createOwner(owner)
+    async createOwners(owner) {
+        return await ownerRepository.createOwners(owner)
     }
 
-    async updateOwner(owner) {
-        return await ownerRepository.updateOwner(owner)
+    async updateOwners(owner) {
+        return await ownerRepository.updateOwners(owner)
     }
 
-    async deleteOwner(ownerId) {
+    async deleteOwners(ownerId) {
         return await ownerRepository.deleteOwners(ownerId)
     }
 }

@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes, Model) => {
             mobile_num: {
                 type: DataTypes.STRING,
             },
+            
         },
         {
             sequelize, // We need to pass the connection instance

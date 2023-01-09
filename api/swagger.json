@@ -39,6 +39,29 @@
                         }
                     }
                 }
+            },
+            "DELETE": {
+                "summary": "Delete a single owners record",
+                "description": "Delete a single owners record",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ownersResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
             }
         }
     },

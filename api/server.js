@@ -31,15 +31,19 @@ app.get('/api/owners', (req, res) => {
 
 app.post('/api/owners', (req, res) => {
     console.log(req.body)
-    ownersController.createTask(req.body.owners).then((data) => res.json(data))
+    ownersController
+        .createOwners(req.body.owners)
+        .then((data) => res.json(data))
 })
 
 app.put('/api/owners', (req, res) => {
-    ownersController.updateTask(req.body.owners).then((data) => res.json(data))
+    ownersController
+        .updateOwners(req.body.owners)
+        .then((data) => res.json(data))
 })
 
 app.delete('/api/owners/:id', (req, res) => {
-    ownersController.deleteTask(req.params.id).then((data) => res.json(data))
+    ownersController.deleteOwners(req.params.id).then((data) => res.json(data))
 })
 
 app.get('/', (req, res) => {
