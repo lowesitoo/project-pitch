@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000
 
 app.use(express.static(path.join(__dirname, './ui/build/')))
 
-// // let express to use this
+// let express to use this
 app.use(
     '/api-docs',
     swaggerUi.serve,
@@ -29,22 +29,22 @@ app.get('/api/owners', (req, res) => {
     ownersController.getOwners().then((data) => res.json(data))
 })
 
-// app.post('/api/task', (req, res) => {
-//     console.log(req.body);
-//     taskController.createTask(req.body.task).then(data => res.json(data));
-// });
+app.post('/api/owners', (req, res) => {
+    console.log(req.body)
+    ownersController.createTask(req.body.owners).then((data) => res.json(data))
+})
 
-// app.put('/api/task', (req, res) => {
-//     taskController.updateTask(req.body.task).then(data => res.json(data));
-// });
+app.put('/api/owners', (req, res) => {
+    ownersController.updateTask(req.body.owners).then((data) => res.json(data))
+})
 
-// app.delete('/api/task/:id', (req, res) => {
-//     taskController.deleteTask(req.params.id).then(data => res.json(data));
-// });
+app.delete('/api/owners/:id', (req, res) => {
+    ownersController.deleteTask(req.params.id).then((data) => res.json(data))
+})
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, './ui/build/index.html'));
-// });
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './ui/build/index.html'))
+})
 
 app.listen(port, () => {
     console.log(`Server listening on the port  ${port}`)
