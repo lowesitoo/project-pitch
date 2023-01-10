@@ -6,10 +6,10 @@ class OwnerRepository {
 
     constructor() {
         this.db = connect()
-        // For Development
-        this.db.sequelize.sync({ force: true }).then(() => {
-            console.log('Drop and re-sync db.')
-        })
+
+        // this.db.sequelize.sync({ force: true }).then(() => {
+        //     console.log('Drop and re-sync db.')
+        // })
     }
 
     async getOwners() {
@@ -22,8 +22,6 @@ class OwnerRepository {
             return []
         }
     }
-    // Assignment #3
-    // Uncomment remaining crud
 
     async createOwners(owner) {
         let data = {}
