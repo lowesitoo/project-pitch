@@ -19,16 +19,14 @@ function Home() {
     const [numberOfOwners, setNumberOfOwners] = useState([])
     const [isOwnerEdited, setOwnerEdited] = useState(false)
 
-    useEffect(
-        () => {
-            getAllOwners().then((owners) => {
-                console.log(owners)
-                setOwners(owners)
-            })
-        },
-        // [numberOfOwners, isOwnerEdited])
-        []
-    )
+    useEffect(() => {
+        getAllOwners().then((owners) => {
+            console.log(owners)
+            setOwners(owners)
+        })
+    }, [numberOfOwners, isOwnerEdited])
+    // []
+    // )
 
     function delOwner(ownerId) {
         deleteOwner(ownerId).then((response) => {

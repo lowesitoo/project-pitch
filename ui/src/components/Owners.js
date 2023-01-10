@@ -1,6 +1,7 @@
 import React from 'react'
+import EditOwnerModal from './EditOwnerModal'
 
-function Owners({ owners }) {
+export const Owner = ({ owners, deleteOwner, ownerEdited }) => {
     if (owners.length === 0) return null
 
     const OwnerRow = (owner, index) => {
@@ -11,7 +12,7 @@ function Owners({ owners }) {
                 <td>{owner.email}</td>
                 <td>{owner.pet}</td>
                 <td>{owner.mobile_num}</td>
-                {/* <td>
+                <td>
                     <div className="row">
                         <div className="col-md-6">{owner.status}</div>
                         <div className="col-md-3">
@@ -30,7 +31,7 @@ function Owners({ owners }) {
                             </button>
                         </div>
                     </div>
-                </td> */}
+                </td>
             </tr>
         )
     }
@@ -55,5 +56,4 @@ function Owners({ owners }) {
         </div>
     )
 }
-
-export default Owners
+export default Owner
