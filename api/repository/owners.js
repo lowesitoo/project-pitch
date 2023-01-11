@@ -15,10 +15,10 @@ class OwnerRepository {
     async getOwners() {
         try {
             const owners = await this.db.owners.findAll()
-            console.log('owners:::', owners)
+            // console.log('owners:::', owners)
             return owners
         } catch (err) {
-            console.log(err)
+            // console.log(err)
             return []
         }
     }
@@ -26,46 +26,47 @@ class OwnerRepository {
     async createOwners(owner) {
         let data = {}
         try {
-            owner.createdate = new Date().toISOString()
-            data = await this.db.owner.create(owner)
+            console.log('this is the user from the controller', owner)
+            // owner.createdate = new Date().toISOString()
+            data = await this.db.owners.create(owner)
         } catch (err) {
             logger.error('Error::' + err)
         }
         return data
     }
 
-    async updateOwners(owner) {
-        let data = {}
-        try {
-            owner.updateddate = new Date().toISOString()
-            data = await this.db.owner.update(
-                { ...owner },
-                {
-                    where: {
-                        id: owner.id,
-                    },
-                }
-            )
-        } catch (err) {
-            logger.error('Error::' + err)
-        }
-        return data
-    }
+    // async updateOwners(owner) {
+    //     let data = {}
+    //     try {
+    //         owner.updateddate = new Date().toISOString()
+    //         data = await this.db.owner.update(
+    //             { ...owner },
+    //             {
+    //                 where: {
+    //                     id: owner.id,
+    //                 },
+    //             }
+    //         )
+    //     } catch (err) {
+    //         logger.error('Error::' + err)
+    //     }
+    //     return data
+    // }
 
-    async deleteOwners(ownerId) {
-        let data = {}
-        try {
-            data = await this.db.owner.destroy({
-                where: {
-                    id: ownerId,
-                },
-            })
-        } catch (err) {
-            logger.error('Error::' + err)
-        }
-        return data
-        return { status: `${data.deletedCount > 0 ? true : false}` }
-    }
+    // async deleteOwners(ownerId) {
+    //     let data = {}
+    //     try {
+    //         data = await this.db.owner.destroy({
+    //             where: {
+    //                 id: ownerId,
+    //             },
+    //         })
+    //     } catch (err) {
+    //         logger.error('Error::' + err)
+    //     }
+    //     return data
+    //     return { status: `${data.deletedCount > 0 ? true : false}` }
+    // }
 }
 
 module.exports = new OwnerRepository()

@@ -6,10 +6,9 @@ class OwnerService {
     async getOwners() {
         return await ownerRepository.getOwners()
     }
-    // Assignment #2
-    // Uncomment remaining crud
 
     async createOwners(owner) {
+        console.log('this is the user from the controller', owner)
         return await ownerRepository.createOwners(owner)
     }
 

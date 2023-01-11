@@ -9,6 +9,7 @@ class OwnersController {
 
     async createOwners(user) {
         logger.info('Controller: createOwners', user)
+        console.log('this is the user from the controller', user)
         return await userService.createOwners(user)
     }
 

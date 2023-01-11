@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+
 const fs = require('fs')
 const path = require('path')
 
@@ -30,10 +31,9 @@ app.get('/api/owners', (req, res) => {
 })
 
 app.post('/api/owners', (req, res) => {
-    console.log(req.body)
-    ownersController
-        .createOwners(req.body.owners)
-        .then((data) => res.json(data))
+    // console.log(req.body)
+    // console.log('this is the api endpoint req body', req.body)
+    ownersController.createOwners(req.body.owner).then((data) => res.json(data))
 })
 
 app.put('/api/owners', (req, res) => {
