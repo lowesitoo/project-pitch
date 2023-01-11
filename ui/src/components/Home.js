@@ -21,7 +21,7 @@ function Home() {
 
     useEffect(() => {
         getAllOwners().then((owners) => {
-            console.log(owners)
+            // console.log(owners)
             setOwners(owners)
         })
     }, [numberOfOwners, isOwnerEdited])
@@ -30,7 +30,7 @@ function Home() {
 
     function delOwner(ownerId) {
         deleteOwner(ownerId).then((response) => {
-            console.log(response)
+            // console.log(response)
             setNumberOfOwners(numberOfOwners - 1)
         })
     }
@@ -55,11 +55,11 @@ function Home() {
                 </div>
             </div>
             <div className="container mrgnbtm">
-                <Owners
+                {/* <Owners
                     owners={owners}
                     deleteOwner={delOwner}
                     ownerEdited={ownerEdited}
-                />
+                /> */}
                 <Owners owners={owners} />
             </div>
         </div>

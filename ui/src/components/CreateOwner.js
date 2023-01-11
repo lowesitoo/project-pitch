@@ -19,7 +19,7 @@ export default function CreateOwner(props) {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row mrgnbtm">
                             <div className="form-group col-md-6">
-                                <label htmlFor="exampleInputEmail1">
+                                <label htmlFor="exampleInputUsername">
                                     Username
                                 </label>
                                 <input
@@ -31,7 +31,19 @@ export default function CreateOwner(props) {
                                 />
                             </div>
                             <div className="form-group col-md-6">
-                                <label htmlFor="exampleInputPassword1">
+                                <label htmlFor="exampleInputPet">
+                                    Password
+                                </label>
+                                <input
+                                    {...register('password')}
+                                    placeholder="Password"
+                                    className="form-control"
+                                    name="password"
+                                    id="password"
+                                />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label htmlFor="exampleInputEmailAddress">
                                     Email
                                 </label>
                                 <input
@@ -44,7 +56,7 @@ export default function CreateOwner(props) {
                             </div>
                         </div>
                         <div className="form-group col-md-6">
-                            <label htmlFor="exampleInputPassword1">Pet</label>
+                            <label htmlFor="exampleInputPet">Pet</label>
                             <input
                                 {...register('pet')}
                                 placeholder="Pet"
@@ -54,7 +66,7 @@ export default function CreateOwner(props) {
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label htmlFor="exampleInputPassword1">
+                            <label htmlFor="exampleInputMobileNumber">
                                 Mobile Number
                             </label>
                             <input
@@ -65,6 +77,7 @@ export default function CreateOwner(props) {
                                 id="mobile_num"
                             />
                         </div>
+
                         <input
                             type="submit"
                             className="btn btn-danger mrgnbtm"

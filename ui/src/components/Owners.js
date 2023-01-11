@@ -14,7 +14,7 @@ export const Owner = ({ owners, deleteOwner, ownerEdited }) => {
                 <td>{owner.mobile_num}</td>
                 <td>
                     <div className="row">
-                        <div className="col-md-6">{owner.status}</div>
+                        {/* <div className="col-md-6">{owner.username}</div> */}
                         <div className="col-md-3">
                             <EditOwnerModal
                                 owner={owner}
