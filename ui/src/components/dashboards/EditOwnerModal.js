@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { useForm } from 'react-hook-form'
-import { editOwner } from '../services/OwnerService'
+import { editOwner } from '../../services/OwnerService'
 
 export default function EditOwnerModal({ owner, ownerEdited }) {
     const [show, setShow] = useState(false)

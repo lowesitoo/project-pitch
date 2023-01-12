@@ -1,7 +1,7 @@
 import React from 'react'
 import EditOwnerModal from './EditOwnerModal'
 
-export const Owners = ({ owners, deleteOwner, ownerEdited }) => {
+export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
     if (owners.length === 0)
         return (
             <div className="container">
@@ -76,4 +76,4 @@ export const Owners = ({ owners, deleteOwner, ownerEdited }) => {
         </div>
     )
 }
-export default Owners
+export default OwnersTable

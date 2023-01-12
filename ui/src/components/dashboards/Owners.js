@@ -4,17 +4,17 @@ import {
     getAllOwners,
     deleteOwner,
     fetchSettings,
-} from '../services/OwnerService'
+} from '../../services/OwnerService'
 
 // import { getAllOwners } from '../services/OwnerService'
-import Owners from './Owners'
-import Header from './Header'
+import OwnersTable from './OwnersTable'
+import Header from '../Header'
 import CreateOwner from './CreateOwner'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../App.css'
+import '../../App.css'
 
-function Home() {
+function Owners() {
     const [owners, setOwners] = useState([])
     const [numberOfOwners, setNumberOfOwners] = useState([])
     const [isOwnerEdited, setOwnerEdited] = useState(false)
@@ -55,7 +55,7 @@ function Home() {
                 </div>
             </div>
             <div className="container mrgnbtm">
-                <Owners
+                <OwnersTable
                     owners={owners}
                     deleteOwner={delOwner}
                     ownerEdited={ownerEdited}
@@ -66,4 +66,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Owners

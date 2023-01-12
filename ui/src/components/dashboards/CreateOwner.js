@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { createOwner } from '../services/OwnerService'
+import { createOwner } from '../../services/OwnerService'
 
 export default function CreateOwner(props) {
     const { register, handleSubmit } = useForm()
