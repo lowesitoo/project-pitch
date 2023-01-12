@@ -28,7 +28,7 @@ export default function EditOwnerModal({ owner, ownerEdited }) {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Owner Edit</Modal.Title>
+                    <Modal.Title>Edit your Record</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,6 +60,20 @@ export default function EditOwnerModal({ owner, ownerEdited }) {
                                 />
                             </div>
                         </div>
+                        {/* <div className="row">
+                            <div className="form-group col-md-6">
+                                <label htmlFor="owner">Password</label>
+                                <input
+                                    {...register('username')}
+                                    type="text"
+                                    className="form-control"
+                                    defaultValue={owner.password}
+                                    name="username"
+                                    id="username"
+                                    placeholder="Edit username"
+                                />
+                            </div>
+                        </div> */}
                         <div className="row">
                             <div className="form-group col-md-6">
                                 <label htmlFor="assignee">Email</label>

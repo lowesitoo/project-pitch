@@ -28,6 +28,7 @@ export default function CreateOwner(props) {
                                     className="form-control"
                                     name="username"
                                     id="username"
+                                    required
                                 />
                             </div>
                             <div className="form-group col-md-6">
@@ -40,6 +41,7 @@ export default function CreateOwner(props) {
                                     className="form-control"
                                     name="password"
                                     id="password"
+                                    required
                                 />
                             </div>
                             <div className="form-group col-md-6">
@@ -50,8 +52,10 @@ export default function CreateOwner(props) {
                                     {...register('email')}
                                     placeholder="Email Address"
                                     className="form-control"
+                                    type="email"
                                     name="email"
                                     id="email"
+                                    required
                                 />
                             </div>
                         </div>
@@ -63,6 +67,7 @@ export default function CreateOwner(props) {
                                 className="form-control"
                                 name="pet"
                                 id="pet"
+                                required
                             />
                         </div>
                         <div className="form-group col-md-6">
@@ -75,6 +80,7 @@ export default function CreateOwner(props) {
                                 className="form-control"
                                 name="mobile_num"
                                 id="mobile_num"
+                                required
                             />
                         </div>
 

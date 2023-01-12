@@ -1,8 +1,27 @@
 import React from 'react'
 import EditOwnerModal from './EditOwnerModal'
 
-export const Owner = ({ owners, deleteOwner, ownerEdited }) => {
-    if (owners.length === 0) return null
+export const Owners = ({ owners, deleteOwner, ownerEdited }) => {
+    if (owners.length === 0)
+        return (
+            <div className="container">
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Owner Id</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Pet</th>
+                            <th>Mobile Number</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+                <tbody>
+                    <h2 className="text-center">No records found</h2>
+                </tbody>
+            </div>
+        )
 
     const OwnerRow = (owner, index) => {
         return (
@@ -49,6 +68,7 @@ export const Owner = ({ owners, deleteOwner, ownerEdited }) => {
                         <th>Email</th>
                         <th>Pet</th>
                         <th>Mobile Number</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>{ownerTable}</tbody>
@@ -56,4 +76,4 @@ export const Owner = ({ owners, deleteOwner, ownerEdited }) => {
         </div>
     )
 }
-export default Owner
+export default Owners

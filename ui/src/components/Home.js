@@ -55,12 +55,12 @@ function Home() {
                 </div>
             </div>
             <div className="container mrgnbtm">
-                {/* <Owners
+                <Owners
                     owners={owners}
                     deleteOwner={delOwner}
                     ownerEdited={ownerEdited}
-                /> */}
-                <Owners owners={owners} />
+                />
+                {/* <Owners owners={owners} /> */}
             </div>
         </div>
     )
