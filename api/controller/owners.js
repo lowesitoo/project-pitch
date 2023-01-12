@@ -15,6 +15,7 @@ class OwnersController {
 
     async updateOwners(user) {
         logger.info('Controller: updateOwners', user)
+        console.log('this is the user from the controller', user)
         return await userService.updateOwners(user)
     }
 

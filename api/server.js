@@ -32,14 +32,13 @@ app.get('/api/owners', (req, res) => {
 
 app.post('/api/owners', (req, res) => {
     // console.log(req.body)
-    // console.log('this is the api endpoint req body', req.body)
+    console.log('this is the api endpoint req body', req.body)
     ownersController.createOwners(req.body.owner).then((data) => res.json(data))
 })
 
 app.put('/api/owners', (req, res) => {
-    ownersController
-        .updateOwners(req.body.owners)
-        .then((data) => res.json(data))
+    console.log('this is the api endpoint req body', req.body)
+    ownersController.updateOwners(req.body.owner).then((data) => res.json(data))
 })
 
 app.delete('/api/owners/:id', (req, res) => {

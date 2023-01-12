@@ -35,38 +35,38 @@ class OwnerRepository {
         return data
     }
 
-    // async updateOwners(owner) {
-    //     let data = {}
-    //     try {
-    //         owner.updateddate = new Date().toISOString()
-    //         data = await this.db.owner.update(
-    //             { ...owner },
-    //             {
-    //                 where: {
-    //                     id: owner.id,
-    //                 },
-    //             }
-    //         )
-    //     } catch (err) {
-    //         logger.error('Error::' + err)
-    //     }
-    //     return data
-    // }
+    async updateOwners(owner) {
+        let data = {}
+        try {
+            // owner.updateddate = new Date().toISOString()
+            data = await this.db.owners.update(
+                { ...owner },
+                {
+                    where: {
+                        id: owner.id,
+                    },
+                }
+            )
+        } catch (err) {
+            logger.error('Error::' + err)
+        }
+        return data
+    }
 
-    // async deleteOwners(ownerId) {
-    //     let data = {}
-    //     try {
-    //         data = await this.db.owner.destroy({
-    //             where: {
-    //                 id: ownerId,
-    //             },
-    //         })
-    //     } catch (err) {
-    //         logger.error('Error::' + err)
-    //     }
-    //     return data
-    //     return { status: `${data.deletedCount > 0 ? true : false}` }
-    // }
+    async deleteOwners(ownerId) {
+        let data = {}
+        try {
+            data = await this.db.owners.destroy({
+                where: {
+                    id: ownerId,
+                },
+            })
+        } catch (err) {
+            logger.error('Error::' + err)
+        }
+        return data
+        return { status: `${data.deletedCount > 0 ? true : false}` }
+    }
 }
 
 module.exports = new OwnerRepository()
