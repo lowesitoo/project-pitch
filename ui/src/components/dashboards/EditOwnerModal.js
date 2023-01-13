@@ -60,12 +60,12 @@ export default function EditOwnerModal({ owner, ownerEdited }) {
                                 />
                             </div>
                         </div>
-                        {/* <div className="row">
+                        <div className="row">
                             <div className="form-group col-md-6">
                                 <label htmlFor="owner">Password</label>
                                 <input
                                     {...register('username')}
-                                    type="text"
+                                    type="password"
                                     className="form-control"
                                     defaultValue={owner.password}
                                     name="username"
@@ -73,7 +73,7 @@ export default function EditOwnerModal({ owner, ownerEdited }) {
                                     placeholder="Edit username"
                                 />
                             </div>
-                        </div> */}
+                        </div>
                         <div className="row">
                             <div className="form-group col-md-6">
                                 <label htmlFor="assignee">Email</label>

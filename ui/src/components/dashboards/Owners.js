@@ -25,8 +25,6 @@ function Owners() {
             setOwners(owners)
         })
     }, [numberOfOwners, isOwnerEdited])
-    // []
-    // )
 
     function delOwner(ownerId) {
         deleteOwner(ownerId).then((response) => {
@@ -60,7 +58,6 @@ function Owners() {
                     deleteOwner={delOwner}
                     ownerEdited={ownerEdited}
                 />
-                {/* <Owners owners={owners} /> */}
             </div>
         </div>
     )
