@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './components/Home'
+import Login from './components/authentication/Login'
+import Signup from './components/authentication/Signup'
 import About from './components/common/About'
 import Contact from './components/common/Contact'
 import Footer from './components/common/Footer'
@@ -28,6 +30,8 @@ function App() {
                     <Route path="/vaccine" element={<Vaccine />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" element={<Login />} />
                 </Routes>
                 <Footer />
             </div>

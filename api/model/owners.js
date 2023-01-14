@@ -18,12 +18,11 @@ module.exports = (sequelize, DataTypes, Model) => {
             },
             pet: {
                 type: DataTypes.STRING,
-                allowNull: false,
             },
             mobile_num: {
                 type: DataTypes.STRING,
+                allowNull: false,
             },
-            
         },
         {
             sequelize, // We need to pass the connection instance

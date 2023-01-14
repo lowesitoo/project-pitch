@@ -3,7 +3,7 @@ import React from 'react'
 function Splash() {
     return (
         <h1 className="text-3xl text-sky-900 font-bold underline">
-            Hello world!
+            This is my splash page
         </h1>
     )
 }
