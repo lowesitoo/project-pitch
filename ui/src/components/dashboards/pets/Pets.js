@@ -11,9 +11,6 @@ import PetsTable from './PetsTable'
 import Header from '../../Header'
 import CreatePet from './CreatePet'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-
 function Pets() {
     const [pets, setPets] = useState([])
     const [numberOfPets, setNumberOfPets] = useState([])
