@@ -4,11 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Owners from './components/dashboards/owner/Owners'
-import Splash from './components/Splash'
-
-import './App.css'
-import useToken from './components/useToken'
 import Pets from './components/dashboards/pets/Pets'
+import Splash from './components/Splash'
+import useToken from './components/useToken'
+
+import './index.css'
 
 function App() {
     // const { token, setToken } = useToken()

@@ -12,7 +12,7 @@ import Header from '../../Header'
 import CreatePet from './CreatePet'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../../../App.css'
+
 
 function Pets() {
     const [pets, setPets] = useState([])

@@ -12,7 +12,6 @@ import Header from '../../Header'
 import CreateOwner from './CreateOwner'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../../../App.css'
 
 function Owners() {
     const [owners, setOwners] = useState([])
