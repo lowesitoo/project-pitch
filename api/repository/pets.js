@@ -1,7 +1,7 @@
 const { connect } = require('../config/db')
 const logger = require('../logger/logger')
 
-class OwnerRepository {
+class PetRepository {
     db = {}
 
     constructor() {
@@ -12,40 +12,40 @@ class OwnerRepository {
         // })
     }
 
-    async getOwners() {
+    async getPets() {
         try {
-            console.log('hahahahahhahahhahahahahahahahahaha')
-            const owners = await this.db.owners.findAll()
+            console.log('pets hahahahahahahahahahahaha')
+            const pets = await this.db.pets.findAll()
+            console.log('pets:::', pets)
 
-            console.log('owners:::', owners)
-            return owners
+            return pets
         } catch (err) {
             // console.log(err)
             return []
         }
     }
 
-    async createOwners(owner) {
+    async createPets(pet) {
         let data = {}
         try {
-            console.log('this is the user from the controller', owner)
-            // owner.createdate = new Date().toISOString()
-            data = await this.db.owners.create(owner)
+            console.log('this is the user from the controller', pet)
+            // pet.createdate = new Date().toISOString()
+            data = await this.db.pets.create(pet)
         } catch (err) {
             logger.error('Error::' + err)
         }
         return data
     }
 
-    async updateOwners(owner) {
+    async updatePets(pet) {
         let data = {}
         try {
-            // owner.updateddate = new Date().toISOString()
-            data = await this.db.owners.update(
-                { ...owner },
+            // pet.updateddate = new Date().toISOString()
+            data = await this.db.pets.update(
+                { ...pet },
                 {
                     where: {
-                        id: owner.id,
+                        id: pet.id,
                     },
                 }
             )
@@ -55,12 +55,12 @@ class OwnerRepository {
         return data
     }
 
-    async deleteOwners(ownerId) {
+    async deletePets(petId) {
         let data = {}
         try {
-            data = await this.db.owners.destroy({
+            data = await this.db.pets.destroy({
                 where: {
-                    id: ownerId,
+                    id: petId,
                 },
             })
         } catch (err) {
@@ -71,4 +71,4 @@ class OwnerRepository {
     }
 }
 
-module.exports = new OwnerRepository()
+module.exports = new PetRepository()
