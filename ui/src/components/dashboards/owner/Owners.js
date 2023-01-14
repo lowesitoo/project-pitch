@@ -4,15 +4,15 @@ import {
     getAllOwners,
     deleteOwner,
     fetchSettings,
-} from '../../services/OwnerService'
+} from '../../../services/OwnerService'
 
 // import { getAllOwners } from '../services/OwnerService'
 import OwnersTable from './OwnersTable'
-import Header from '../Header'
+import Header from '../../Header'
 import CreateOwner from './CreateOwner'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../../App.css'
+import '../../../App.css'
 
 function Owners() {
     const [owners, setOwners] = useState([])
