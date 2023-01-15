@@ -12,7 +12,7 @@ import Doctors from './components/dashboards/doctors/Doctors'
 import Owners from './components/dashboards/owner/Owners'
 import Pets from './components/dashboards/pets/Pets'
 import Profile from './components/dashboards/Profile'
-import Vaccine from './components/dashboards/Vaccine'
+import Vaccine from './components/dashboards/vaccine/Vaccines'
 
 import './index.css'
 

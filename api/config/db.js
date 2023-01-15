@@ -27,6 +27,8 @@ const connect = () => {
     db.sequelize = sequelize
     db.owners = require('../model/owners')(sequelize, DataTypes, Model)
     db.pets = require('../model/pets')(sequelize, DataTypes, Model)
+    db.doctors = require('../model/doctors')(sequelize, DataTypes, Model)
+    db.vaccines = require('../model/vaccines')(sequelize, DataTypes, Model)
 
     return db
 }
