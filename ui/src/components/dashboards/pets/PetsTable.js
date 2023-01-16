@@ -4,21 +4,36 @@ import EditPetModal from './EditPetModal'
 export const PetsTable = ({ pets, deletePet, petEdited }) => {
     if (pets.length === 0)
         return (
-            <div className="container">
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Pet Id</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Pet</th>
-                            <th>Mobile Number</th>
-                            <th>Action</th>
+            <div className="flex flex-col ">
+                <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                    <thead className="bg-gray-900">
+                        <tr className="text-white text-left">
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Pet Id
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Name
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Breed
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Doctor
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Clinic
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Vaccine History
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Action
+                            </th>
                         </tr>
                     </thead>
                 </table>
-                <tbody>
-                    <h2 className="text-center">No records found</h2>
+                <tbody className="text-center font-bold">
+                    No records found
                 </tbody>
             </div>
         )
@@ -32,17 +47,16 @@ export const PetsTable = ({ pets, deletePet, petEdited }) => {
                 <td>{pet.primary_doctor}</td>
                 <td>{pet.clinic}</td>
                 <td>{pet.vaccine_history}</td>
-                <td>
-                    <div className="row">
-                        {/* <div className="col-md-6">{pet.username}</div> */}
-                        <div className="col-md-3">
+                <td className="self-start">
+                    <div>
+                        <div>
                             <EditPetModal pet={pet} petEdited={petEdited} />
                         </div>
-                        <div className="col-md-3">
+                        <div>
                             <button
                                 type="button"
                                 onClick={(e) => deletePet(pet.id)}
-                                className="btn btn-danger right"
+                                className="bg-red-600 rounded p-2 text-white font-800 w-15"
                             >
                                 Delete
                             </button>
@@ -56,18 +70,32 @@ export const PetsTable = ({ pets, deletePet, petEdited }) => {
     const petTable = pets.map((pet, index) => PetRow(pet, index))
 
     return (
-        <div className="container">
+        <div className="divide-y divide-gray-100 ">
             <h2>Pets Dashboard</h2>
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Pet Id</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Pet</th>
-                        <th>Mobile Number</th>
-                        <th>Vaccine History</th>
-                        <th>Action</th>
+            <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                <thead className="bg-gray-900">
+                    <tr className="text-white text-left">
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Pet Id
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Name
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Breed
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Doctor
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Clinic
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Vaccine History
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody>{petTable}</tbody>

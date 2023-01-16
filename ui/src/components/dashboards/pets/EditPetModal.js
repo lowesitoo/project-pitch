@@ -22,7 +22,10 @@ export default function EditPetModal({ pet, petEdited }) {
 
     return (
         <>
-            <Button variant="warning" onClick={handleShow}>
+            <Button
+                className="bg-yellow-500 rounded p-2 text-white font-800 w-15"
+                onClick={handleShow}
+            >
                 Edit
             </Button>
 

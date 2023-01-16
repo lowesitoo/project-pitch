@@ -4,17 +4,21 @@ import EditDoctorModal from './EditDoctorModal'
 export const DoctorsTable = ({ doctors, deleteDoctor, doctorEdited }) => {
     if (doctors.length === 0)
         return (
-            <div className="container">
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Doctor Id</th>
-                            <th>Name</th>
+            <div className="flex flex-col">
+                <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                    <thead className="bg-gray-900">
+                        <tr className="text-white text-left">
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Doctor Id
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Name
+                            </th>
                         </tr>
                     </thead>
                 </table>
-                <tbody>
-                    <h2 className="text-center">No records found</h2>
+                <tbody className="text-center font-bold">
+                    No records found
                 </tbody>
             </div>
         )
@@ -36,7 +40,7 @@ export const DoctorsTable = ({ doctors, deleteDoctor, doctorEdited }) => {
                             <button
                                 type="button"
                                 onClick={(e) => deleteDoctor(doctor.id)}
-                                className="btn btn-danger right"
+                                className="bg-red-600 rounded p-2 text-white font-800 w-15 justify-self-end"
                             >
                                 Delete
                             </button>
@@ -50,13 +54,20 @@ export const DoctorsTable = ({ doctors, deleteDoctor, doctorEdited }) => {
     const doctorTable = doctors.map((doctor, index) => DoctorRow(doctor, index))
 
     return (
-        <div className="container">
+        <div className="divide-y divide-gray-100 ">
             <h2>Doctors Dashboard</h2>
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Doctor Id</th>
-                        <th>Name</th>
+            <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                <thead className="bg-gray-900">
+                    <tr className="text-white text-left">
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Doctor Id
+                        </th>
+                        <th className="ont-semibold text-sm uppercase px-6 py-4">
+                            Name
+                        </th>
+                        <th className="ont-semibold text-sm uppercase px-6 py-4">
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody>{doctorTable}</tbody>

@@ -4,21 +4,33 @@ import EditOwnerModal from './EditOwnerModal'
 export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
     if (owners.length === 0)
         return (
-            <div className="container">
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Owner Id</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Pet</th>
-                            <th>Mobile Number</th>
-                            <th>Action</th>
+            <div className="flex flex-col">
+                <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                    <thead className="bg-gray-900">
+                        <tr className="text-white text-left">
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Owner Id
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Username
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Email
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Pet
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Mobile Number
+                            </th>
+                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                                Action
+                            </th>
                         </tr>
                     </thead>
                 </table>
-                <tbody>
-                    <h2 className="text-center">No records found</h2>
+                <tbody className="text-center font-bold">
+                    No records found
                 </tbody>
             </div>
         )
@@ -33,7 +45,6 @@ export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
                 <td>{owner.mobile_num}</td>
                 <td>
                     <div className="row">
-                        {/* <div className="col-md-6">{owner.username}</div> */}
                         <div className="col-md-3">
                             <EditOwnerModal
                                 owner={owner}
@@ -44,7 +55,7 @@ export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
                             <button
                                 type="button"
                                 onClick={(e) => deleteOwner(owner.id)}
-                                className="btn btn-danger right"
+                                className="bg-red-600 rounded p-2 text-white font-800 w-15"
                             >
                                 Delete
                             </button>
@@ -58,17 +69,29 @@ export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
     const ownerTable = owners.map((owner, index) => OwnerRow(owner, index))
 
     return (
-        <div className="container">
+        <div className="divide-y divide-gray-100 ">
             <h2>Owners Dashboard</h2>
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Owner Id</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Pet</th>
-                        <th>Mobile Number</th>
-                        <th>Action</th>
+            <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                <thead className="bg-gray-900">
+                    <tr className="text-white text-left">
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Owner Id
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Username
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Email
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Pet
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Mobile Number
+                        </th>
+                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody>{ownerTable}</tbody>

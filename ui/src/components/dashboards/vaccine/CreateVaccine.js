@@ -25,7 +25,7 @@ export default function CreateVaccine(props) {
                                 <input
                                     {...register('brand')}
                                     placeholder="Enter vaccine brand"
-                                    className="form-control"
+                                    className="border-2 border-black"
                                     name="brand"
                                     id="brand"
                                     required
@@ -40,7 +40,7 @@ export default function CreateVaccine(props) {
                                 <input
                                     {...register('name')}
                                     placeholder="Enter your Name"
-                                    className="form-control"
+                                    className="border-2 border-black"
                                     name="name"
                                     id="name"
                                     required

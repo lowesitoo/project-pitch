@@ -6,7 +6,16 @@ function Login() {
             <section className="h-[75vh]">
                 <div className="container px-6 py-12 h-full">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-                        <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0"></div>
+                        <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+                            Anivact
+                            <img
+                                src="D:\StackTrek\project-pitch\ui\src\utilities\anivact-samplelogo.png
+                            "
+                            ></img>
+                            <h1 className="">
+                                Track your pets record and appointment
+                            </h1>
+                        </div>
                         <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
                             <form>
                                 <div className="mb-6">
