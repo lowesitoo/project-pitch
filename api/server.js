@@ -1,9 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
+const cors = require('cors')
 
 const fs = require('fs')
 const path = require('path')
-// const cors = require('cors')
 
 require('dotenv').config()
 
@@ -30,7 +31,6 @@ app.use(
 
 app.use(bodyParser.json())
 
-ownersController.getOwners()
 app.get('/api/owners', (req, res) => {
     ownersController.getOwners().then((data) => res.json(data))
 })
