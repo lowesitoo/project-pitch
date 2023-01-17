@@ -22,6 +22,17 @@ const port = process.env.PORT || 3000
 
 app.use(express.static(path.join(__dirname, './ui/build/')))
 
+app.use(cors())
+
+app.use('/login', (req, res) => {
+    res.send({
+        token: 'test123',
+    })
+})
+
+app.listen(8080, () =>
+    console.log('API is running on http://localhost:8080/login')
+)
 // let express to use this
 app.use(
     '/api-docs',

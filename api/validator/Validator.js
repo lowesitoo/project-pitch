@@ -1,6 +1,9 @@
 const { check } = require('express-validator')
-const db = require('../db')
+const { connect } = require('../config/db')
 const { compare } = require('bcryptjs')
+
+db = {}
+this.db = connect()
 
 //password
 const password = check('password')
