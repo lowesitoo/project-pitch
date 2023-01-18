@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import useToken from './useToken'
 
 async function loginUser(credentials) {
     return fetch('http://localhost:3080/login', {
@@ -21,6 +22,11 @@ function Login({ setToken }) {
             password,
         })
         setToken(token)
+    }
+    const { token, setToken } = useToken()
+
+    if (!token) {
+        return (setToken = { setToken })
     }
 
     return (
