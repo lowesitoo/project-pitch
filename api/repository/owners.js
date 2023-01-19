@@ -14,9 +14,7 @@ class OwnerRepository {
 
     async getOwners() {
         try {
-            console.log('hahahahahhahahhahahahahahahahahaha')
             const owners = await this.db.owners.findAll()
-
             console.log('owners:::', owners)
             return owners
         } catch (err) {
@@ -28,8 +26,6 @@ class OwnerRepository {
     async createOwners(owner) {
         let data = {}
         try {
-            console.log('this is the user from the controller', owner)
-            // owner.createdate = new Date().toISOString()
             data = await this.db.owners.create(owner)
         } catch (err) {
             logger.error('Error::' + err)
@@ -40,7 +36,6 @@ class OwnerRepository {
     async updateOwners(owner) {
         let data = {}
         try {
-            // owner.updateddate = new Date().toISOString()
             data = await this.db.owners.update(
                 { ...owner },
                 {

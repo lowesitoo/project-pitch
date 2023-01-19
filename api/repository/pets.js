@@ -14,13 +14,11 @@ class PetRepository {
 
     async getPets() {
         try {
-            console.log('pets hahahahahahahahahahahaha')
             const pets = await this.db.pets.findAll()
             console.log('pets:::', pets)
 
             return pets
         } catch (err) {
-            // console.log(err)
             return []
         }
     }
@@ -28,8 +26,6 @@ class PetRepository {
     async createPets(pet) {
         let data = {}
         try {
-            console.log('this is the user from the controller', pet)
-            // pet.createdate = new Date().toISOString()
             data = await this.db.pets.create(pet)
         } catch (err) {
             logger.error('Error::' + err)
@@ -40,7 +36,6 @@ class PetRepository {
     async updatePets(pet) {
         let data = {}
         try {
-            // pet.updateddate = new Date().toISOString()
             data = await this.db.pets.update(
                 { ...pet },
                 {

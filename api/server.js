@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
-const cors = require('cors')
 
 const fs = require('fs')
 const path = require('path')
@@ -21,8 +20,6 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.use(express.static(path.join(__dirname, './ui/build/')))
-
-app.use(cors())
 
 app.use('/login', (req, res) => {
     res.send({
@@ -51,7 +48,6 @@ app.post('/api/owners', (req, res) => {
 })
 
 app.put('/api/owners', (req, res) => {
-    console.log('this is the api endpoint req body', req.body)
     ownersController.updateOwners(req.body.owner).then((data) => res.json(data))
 })
 
