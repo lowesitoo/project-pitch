@@ -12,8 +12,8 @@ function Signup() {
     return (
         <div>
             <section className="h-[75vh]">
-                <div className="container px-6 py-12 h-full">
-                    <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+                <div className="container m-auto p-20">
+                    <div className="flex flex-col items-center h-full text-gray-800">
                         <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0"></div>
                         <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
                             <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,7 +60,7 @@ function Signup() {
                                         href="/login"
                                         className="ml-2 text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
                                     >
-                                        Login
+                                        Sign in
                                     </a>
                                 </div>
                                 <button

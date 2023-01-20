@@ -1,31 +1,76 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router'
+import { LoginUser } from '../../services/LoginService'
+function Login({ setIsAuthenticated }) {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
-function Login() {
+    const emailValidation = () => {
+        const regex =
+            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+        return !(!email || regex.test(email) === false)
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (email === '') {
+            setError('Email is required')
+            return
+        }
+
+        if (email) {
+            emailValidation()
+            if (password === '') {
+                setError('Password is required')
+                return
+            }
+        }
+
+        if (email === '' || password === '') {
+            setError('Fields are required')
+            return
+        } else {
+            // props.login({ email, password })
+            console.log(
+                'this is the data in the frontend from log in hahaha ',
+                'this is the email hahahaha ',
+                email,
+                'password ito lets go',
+                password
+            )
+            const credentials = { email, password }
+            // const response =  LoginUser(credentials)
+            // if (!response) {
+            //     setError('ERRORS FOUND: ', response)
+            // }
+            setIsAuthenticated(true)
+            return <Navigate to="/" />
+        }
+    }
+
     return (
-        <div className="w-full max-w-xs flex flex-col justify-center items-center">
-            <form
-                className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 content-center"
-                // onSubmit={handleSubmit}
-            >
+        <div className="w-full h-[75vh] flex flex-col justify-center items-center">
+            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 content-center">
                 <div className="mb-4">
                     <label
                         className="block text-gray-700 text-sm font-bold mb-2"
-                        for="username"
+                        // for="username"
                     >
                         Email Address
                     </label>
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="email"
-                        type="text"
-                        // onChange={(e) => setUserName(e.target.value)}
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         placeholder=" Email Address"
                     />
                 </div>
                 <div className="mb-6">
                     <label
                         className="block text-gray-700 text-sm font-bold mb-2"
-                        for="password"
+                        // for="password"
                     >
                         Password
                     </label>
@@ -33,7 +78,8 @@ function Login() {
                         className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         id="password"
                         type="password"
-                        // onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder="******************"
                     />
                     {/* <p className="text-red-500 text-xs italic">
@@ -44,6 +90,7 @@ function Login() {
                     <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
+                        onClick={handleSubmit}
                     >
                         Sign In
                     </button>
@@ -55,10 +102,15 @@ function Login() {
                         Register now!
                     </a>
                 </div>
+                {error && (
+                    <div
+                        className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-5 rounded relative"
+                        role="alert"
+                    >
+                        <span className="block sm:inline">{error}</span>
+                    </div>
+                )}
             </form>
-            <p className="text-center text-gray-500 text-xs">
-                &copy;2023 Anivact. All rights reserved.
-            </p>
         </div>
     )
 }

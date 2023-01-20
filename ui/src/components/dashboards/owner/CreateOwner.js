@@ -7,7 +7,6 @@ export default function CreateOwner(props) {
     const onSubmit = (data, e) => {
         createOwner(data).then((response) => {
             props.ownerCreated()
-            e.target.reset()
         })
     }
 

@@ -1,4 +1,4 @@
-    export async function getAllOwners() {
+export async function getAllOwners() {
     const response = await fetch('/api/owners')
     return await response.json()
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './components/Home'
@@ -17,12 +17,21 @@ import Vaccine from './components/dashboards/vaccine/Vaccines'
 import './index.css'
 
 function App() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
     return (
         <BrowserRouter>
             <div>
                 <Navbar />
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route
+                        path="/"
+                        element={
+                            <Home
+                                isAuthenticated={isAuthenticated}
+                                setIsAuthenticated={setIsAuthenticated}
+                            />
+                        }
+                    />
                     <Route path="/owners" element={<Owners />} />
                     <Route path="/pets" element={<Pets />} />
                     <Route path="/profile" element={<Profile />} />
