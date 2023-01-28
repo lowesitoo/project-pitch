@@ -8,7 +8,6 @@ class PetService {
     }
 
     async createPets(pet) {
-        console.log('this is the user from the controller', pet)
         return await petRepository.createPets(pet)
     }
 

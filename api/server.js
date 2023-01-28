@@ -11,6 +11,7 @@ const ownersController = require('./controller/owners')
 const petsController = require('./controller/pets')
 const doctorsController = require('./controller/doctors')
 const vaccinesController = require('./controller/vaccines')
+const loginController = require('./controller/login')
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swagger.json')
@@ -22,9 +23,7 @@ const port = process.env.PORT || 3000
 app.use(express.static(path.join(__dirname, './ui/build/')))
 
 app.use('/login', (req, res) => {
-    res.send({
-        token: 'test123',
-    })
+    loginController.loginUser(req.body.data).then((data) => res.json(data))
 })
 
 app.listen(8080, () =>

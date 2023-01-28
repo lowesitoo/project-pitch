@@ -8,7 +8,6 @@ class OwnerService {
     }
 
     async createOwners(owner) {
-        console.log('this is the user from the controller', owner)
         return await ownerRepository.createOwners(owner)
     }
 
