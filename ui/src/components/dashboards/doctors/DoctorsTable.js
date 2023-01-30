@@ -5,19 +5,19 @@ export const DoctorsTable = ({ doctors, deleteDoctor, doctorEdited }) => {
     if (doctors.length === 0)
         return (
             <div className="flex flex-col">
-                <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                <table className="w-full max-w-4xl mx-auto overflow-hidden bg-gray-100 border-black border-solid divide-y divide-gray-300 rounded-lg whitespace-nowrap">
                     <thead className="bg-gray-900">
-                        <tr className="text-white text-left">
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                        <tr className="text-left text-white">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Doctor Id
                             </th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Name
                             </th>
                         </tr>
                     </thead>
                 </table>
-                <tbody className="text-center font-bold">
+                <tbody className="font-bold text-center">
                     No records found
                 </tbody>
             </div>
@@ -40,7 +40,7 @@ export const DoctorsTable = ({ doctors, deleteDoctor, doctorEdited }) => {
                             <button
                                 type="button"
                                 onClick={(e) => deleteDoctor(doctor.id)}
-                                className="bg-red-600 rounded p-2 text-white font-800 w-15 justify-self-end"
+                                className="p-2 text-white bg-red-600 rounded font-800 w-15 justify-self-end"
                             >
                                 Delete
                             </button>
@@ -55,17 +55,17 @@ export const DoctorsTable = ({ doctors, deleteDoctor, doctorEdited }) => {
 
     return (
         <div className="divide-y divide-gray-100 ">
-            <h2>Doctors Dashboard</h2>
-            <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+            <h2 className="text-center ">Doctors Dashboard</h2>
+            <table className="w-full max-w-4xl mx-auto overflow-hidden bg-gray-100 border-black border-solid divide-y divide-gray-300 rounded-lg whitespace-nowrap">
                 <thead className="bg-gray-900">
-                    <tr className="text-white text-left">
-                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                    <tr className="text-left text-white">
+                        <th className="px-6 py-4 text-sm font-semibold uppercase">
                             Doctor Id
                         </th>
-                        <th className="ont-semibold text-sm uppercase px-6 py-4">
+                        <th className="px-6 py-4 text-sm uppercase ont-semibold">
                             Name
                         </th>
-                        <th className="ont-semibold text-sm uppercase px-6 py-4">
+                        <th className="px-6 py-4 text-sm uppercase ont-semibold">
                             Action
                         </th>
                     </tr>

@@ -23,7 +23,7 @@ export default function EditDoctorModal({ doctor, doctorEdited }) {
     return (
         <>
             <Button
-                className="bg-yellow-500 rounded p-2 text-white font-800 w-15"
+                className="p-2 text-white bg-yellow-500 rounded font-800 w-15"
                 onClick={handleShow}
             >
                 Edit
@@ -35,13 +35,13 @@ export default function EditDoctorModal({ doctor, doctorEdited }) {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="row">
-                            <div className="form-group col-md-3">
+                        <div className="flex flex-wrap">
+                            <div className="pl-4 pr-4 mb-4 md:w-1/4">
                                 <label htmlFor="doctorId">Id</label>
                                 <input
                                     {...register('id')}
                                     type="text"
-                                    className="form-control"
+                                    className="block w-full px-2 py-1 mb-1 text-base leading-normal text-gray-800 bg-white border border-gray-200 rounded appearance-none"
                                     defaultValue={doctor.id}
                                     name="id"
                                     id="id"
@@ -49,13 +49,13 @@ export default function EditDoctorModal({ doctor, doctorEdited }) {
                                 />
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="form-group col-md-6">
+                        <div className="flex flex-wrap">
+                            <div className="pl-4 pr-4 mb-4 md:w-1/2">
                                 <label htmlFor="doctor">Name</label>
                                 <input
                                     {...register('name')}
                                     type="text"
-                                    className="form-control"
+                                    className="block w-full px-2 py-1 mb-1 text-base leading-normal text-gray-800 bg-white border border-gray-200 rounded appearance-none"
                                     defaultValue={doctor.name}
                                     name="name"
                                     id="name"
@@ -65,7 +65,10 @@ export default function EditDoctorModal({ doctor, doctorEdited }) {
                         </div>
 
                         <div className="btncenter">
-                            <input type="submit" className="btn btn-danger" />
+                            <input
+                                type="submit"
+                                className="inline-block px-3 py-1 font-normal leading-normal text-center text-white no-underline whitespace-no-wrap align-middle bg-red-600 border rounded select-none hover:bg-red-700"
+                            />
                         </div>
                     </form>
                 </Modal.Body>
