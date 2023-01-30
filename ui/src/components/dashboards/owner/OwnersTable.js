@@ -5,31 +5,31 @@ export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
     if (owners.length === 0)
         return (
             <div className="flex flex-col">
-                <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+                <table className="w-full max-w-4xl mx-auto overflow-hidden bg-gray-100 border-black border-solid divide-y divide-gray-300 rounded-lg whitespace-nowrap">
                     <thead className="bg-gray-900">
-                        <tr className="text-white text-left">
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                        <tr className="text-left text-white">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Owner Id
                             </th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Username
                             </th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Email
                             </th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Pet
                             </th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Mobile Number
                             </th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">
+                            <th className="px-6 py-4 text-sm font-semibold uppercase">
                                 Action
                             </th>
                         </tr>
                     </thead>
                 </table>
-                <tbody className="text-center font-bold">
+                <tbody className="font-bold text-center">
                     No records found
                 </tbody>
             </div>
@@ -44,18 +44,18 @@ export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
                 <td>{owner.pet}</td>
                 <td>{owner.mobile_num}</td>
                 <td>
-                    <div className="row">
-                        <div className="col-md-3">
+                    <div className="flex flex-wrap ">
+                        <div className="pl-4 pr-4 md:w-1/4">
                             <EditOwnerModal
                                 owner={owner}
                                 ownerEdited={ownerEdited}
                             />
                         </div>
-                        <div className="col-md-3">
+                        <div className="pl-4 pr-4 md:w-1/4">
                             <button
                                 type="button"
                                 onClick={(e) => deleteOwner(owner.id)}
-                                className="bg-red-600 rounded p-2 text-white font-800 w-15"
+                                className="p-2 text-white bg-red-600 rounded font-800 w-15"
                             >
                                 Delete
                             </button>
@@ -70,26 +70,26 @@ export const OwnersTable = ({ owners, deleteOwner, ownerEdited }) => {
 
     return (
         <div className="divide-y divide-gray-100 ">
-            <h2>Owners Dashboard</h2>
-            <table className="mx-auto max-w-4xl w-full whitespace-nowrap border-black border-solid rounded-lg bg-gray-100 divide-y divide-gray-300 overflow-hidden">
+            <h2 className="font-bold text-center">Owners Dashboard</h2>
+            <table className="w-full max-w-4xl mx-auto overflow-hidden bg-gray-100 border-black border-solid divide-y divide-gray-300 rounded-lg whitespace-nowrap">
                 <thead className="bg-gray-900">
-                    <tr className="text-white text-left">
-                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                    <tr className="text-left text-white">
+                        <th className="px-6 py-4 text-sm font-semibold uppercase">
                             Owner Id
                         </th>
-                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                        <th className="px-6 py-4 text-sm font-semibold uppercase">
                             Username
                         </th>
-                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                        <th className="px-6 py-4 text-sm font-semibold uppercase">
                             Email
                         </th>
-                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                        <th className="px-6 py-4 text-sm font-semibold uppercase">
                             Pet
                         </th>
-                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                        <th className="px-6 py-4 text-sm font-semibold uppercase">
                             Mobile Number
                         </th>
-                        <th className="font-semibold text-sm uppercase px-6 py-4">
+                        <th className="px-6 py-4 text-sm font-semibold uppercase">
                             Action
                         </th>
                     </tr>

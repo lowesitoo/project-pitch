@@ -11,7 +11,6 @@ import OwnersTable from './OwnersTable'
 import Header from '../../Header'
 import CreateOwner from './CreateOwner'
 
-
 function Owners() {
     const [owners, setOwners] = useState([])
     const [numberOfOwners, setNumberOfOwners] = useState([])
@@ -43,14 +42,14 @@ function Owners() {
         <div className="App">
             <Header />
 
-            <div className="container mrgnbtm">
-                <div className="row">
-                    <div className="col-md-12">
+            <div className="container mx-auto sm:px-4 mrgnbtm">
+                <div className="flex flex-wrap ">
+                    <div className="pl-4 pr-4 md:w-full">
                         <CreateOwner ownerCreated={ownerCreated} />
                     </div>
                 </div>
             </div>
-            <div className="container mrgnbtm">
+            <div className="container mx-auto sm:px-4 mrgnbtm">
                 <OwnersTable
                     owners={owners}
                     deleteOwner={delOwner}

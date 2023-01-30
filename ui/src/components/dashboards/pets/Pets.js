@@ -42,14 +42,14 @@ function Pets() {
         <div className="App">
             <Header />
 
-            <div className="container mrgnbtm">
-                <div className="row">
-                    <div className="col-md-12">
+            <div className="container mx-auto sm:px-4 mrgnbtm">
+                <div className="flex flex-wrap ">
+                    <div className="pl-4 pr-4 md:w-full">
                         <CreatePet petCreated={petCreated} />
                     </div>
                 </div>
             </div>
-            <div className="container mrgnbtm">
+            <div className="container mx-auto sm:px-4 mrgnbtm">
                 <PetsTable
                     pets={pets}
                     deletePet={delPet}

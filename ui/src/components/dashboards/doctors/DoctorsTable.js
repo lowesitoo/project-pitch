@@ -55,7 +55,7 @@ export const DoctorsTable = ({ doctors, deleteDoctor, doctorEdited }) => {
 
     return (
         <div className="divide-y divide-gray-100 ">
-            <h2 className="text-center ">Doctors Dashboard</h2>
+            <h2 className="font-bold text-center">Doctors Dashboard</h2>
             <table className="w-full max-w-4xl mx-auto overflow-hidden bg-gray-100 border-black border-solid divide-y divide-gray-300 rounded-lg whitespace-nowrap">
                 <thead className="bg-gray-900">
                     <tr className="text-left text-white">
