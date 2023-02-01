@@ -1,43 +1,46 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router'
 import { LoginUser } from '../../services/LoginService'
-function Login({ setIsAuthenticated }) {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+import { toast } from 'react-toastify'
 
-    const emailValidation = () => {
-        const regex =
-            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-        return !(!email || regex.test(email) === false)
-    }
-    const handleSubmit = (e) => {
+function Login({ setAuth }) {
+    const [inputs, setInputs] = useState({
+        email: '',
+        password: '',
+    })
+
+    const { email, password } = inputs
+
+    const onChange = (e) =>
+        setInputs({ ...inputs, [e.target.name]: e.target.value })
+
+    const onSubmitForm = async (e) => {
         e.preventDefault()
-        if (email === '') {
-            setError('Email is required')
-            return
-        }
+        try {
+            const body = { email, password }
+            const response = await fetch(
+                'http://localhost:3080/authentication/login',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json',
+                    },
+                    body: JSON.stringify(body),
+                }
+            )
 
-        if (email) {
-            emailValidation()
-            if (password === '') {
-                setError('Password is required')
-                return
+            const parseRes = await response.json()
+
+            if (parseRes.jwtToken) {
+                localStorage.setItem('token', parseRes.jwtToken)
+                setAuth(true)
+                toast.success('Logged in Successfully')
+            } else {
+                setAuth(false)
+                toast.error(parseRes)
             }
-        }
-
-        if (email === '' || password === '') {
-            setError('Fields are required')
-            return
-        } else {
-            // props.login({ email, password })
-            const credentials = { email, password }
-            // const response =  LoginUser(credentials)
-            // if (!response) {
-            //     setError('ERRORS FOUND: ', response)
-            // }
-            // setIsAuthenticated(true)
-            // return <Navigate to="/" />
+        } catch (err) {
+            console.error(err.message)
         }
     }
 
@@ -56,7 +59,7 @@ function Login({ setIsAuthenticated }) {
                         id="email"
                         type="email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => onChange(e)}
                         placeholder=" Email Address"
                     />
                 </div>
@@ -72,7 +75,7 @@ function Login({ setIsAuthenticated }) {
                         id="password"
                         type="password"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => onChange(e)}
                         placeholder="******************"
                     />
                     {/* <p className="text-xs italic text-red-500">
@@ -83,7 +86,7 @@ function Login({ setIsAuthenticated }) {
                     <button
                         className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                         type="submit"
-                        onClick={handleSubmit}
+                        onClick={onSubmitForm}
                     >
                         Sign In
                     </button>
@@ -95,14 +98,14 @@ function Login({ setIsAuthenticated }) {
                         Register now!
                     </a>
                 </div>
-                {error && (
-                    <div
-                        className="relative px-4 py-3 mt-5 text-red-700 bg-red-100 border border-red-400 rounded"
-                        role="alert"
-                    >
-                        <span className="block sm:inline">{error}</span>
-                    </div>
-                )}
+                {/* {error && (
+                        <div
+                            className="relative px-4 py-3 mt-5 text-red-700 bg-red-100 border border-red-400 rounded"
+                            role="alert"
+                        >
+                            <span className="block sm:inline">{error}</span>
+                        </div>
+                    )} */}
             </form>
         </div>
     )

@@ -6,7 +6,6 @@ import {
     fetchSettings,
 } from '../../../services/OwnerService'
 
-// import { getAllOwners } from '../services/OwnerService'
 import OwnersTable from './OwnersTable'
 import Header from '../../Header'
 import CreateOwner from './CreateOwner'
