@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const bcrypt = require('bcrypt')
-
+const cors = require('cors')
 const fs = require('fs')
 const path = require('path')
 
@@ -11,7 +10,6 @@ const ownersController = require('./controller/owners')
 const petsController = require('./controller/pets')
 const doctorsController = require('./controller/doctors')
 const vaccinesController = require('./controller/vaccines')
-const loginController = require('./controller/login')
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swagger.json')
@@ -21,14 +19,14 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.use(express.static(path.join(__dirname, './ui/build/')))
-
-app.use('/login', (req, res) => {
-    loginController.loginUser(req.body.data).then((data) => res.json(data))
-})
+app.use(cors())
+app.use(express.json())
+app.use('/authentication', require('./routes/jwtAuth'))
 
 app.listen(8080, () =>
     console.log('API is running on http://localhost:8080/login')
 )
+
 // let express to use this
 app.use(
     '/api-docs',
@@ -37,6 +35,8 @@ app.use(
 )
 
 app.use(bodyParser.json())
+
+// Owners
 
 app.get('/api/owners', (req, res) => {
     ownersController.getOwners().then((data) => res.json(data))
